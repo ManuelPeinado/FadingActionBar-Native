@@ -3,6 +3,22 @@ FadingActionBar (native action bar)
 
 A fork of [FadingActionBar][1] that works with the native action bar instead of with ActionBarSherlock. Use it if your app does not need to maintain Android  2.X compatibility.
 
+Including in your project
+-------------------------
+
+Just add the library to your application as a library project.
+
+Or if you use maven, add the following dependency to your pom:
+
+```xml
+<dependency>
+    <groupId>com.github.manuelpeinado.fadingactionbar-native</groupId>
+    <artifactId>fadingactionbar-native</artifactId>
+    <version>1.0.2</version>
+    <type>apklib</type>
+</dependency>
+```
+
 Who's using it
 --------------
  
