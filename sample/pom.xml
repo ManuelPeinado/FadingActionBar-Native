@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>sample</artifactId>
-	<name>FadingActionBar Sample</name>
+	<name>FadingActionBar-Native Sample</name>
 	<packaging>apk</packaging>
 
 	<parent>
-		<groupId>com.github.manuelpeinado.fadingactionbar</groupId>
+		<groupId>com.github.manuelpeinado.fadingactionbar-native</groupId>
 		<artifactId>parent</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.2-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -22,8 +22,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.github.manuelpeinado.fadingactionbar</groupId>
-			<artifactId>fadingactionbar</artifactId>
+			<groupId>com.github.manuelpeinado.fadingactionbar-native</groupId>
+			<artifactId>fadingactionbar-native</artifactId>
 			<version>${project.version}</version>
 			<type>apklib</type>
 		</dependency>
