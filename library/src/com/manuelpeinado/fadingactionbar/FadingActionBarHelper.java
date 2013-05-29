@@ -159,7 +159,7 @@ public class FadingActionBarHelper {
             if (topChild == null) {
                 onNewScroll(0);
             } else if (topChild != mHeaderContainer) {
-                onNewScroll(mHeaderContainer.getMeasuredHeight());
+                onNewScroll(mHeaderContainer.getHeight());
             } else {
                 onNewScroll(-topChild.getTop());
             }
@@ -174,7 +174,7 @@ public class FadingActionBarHelper {
         if (mActionBar == null) {
             return;
         }
-        int headerHeight = mHeaderContainer.getMeasuredHeight() - mActionBar.getHeight();
+        int headerHeight = mHeaderContainer.getHeight() - mActionBar.getHeight();
         float ratio = (float) Math.min(Math.max(scrollPosition, 0), headerHeight) / headerHeight;
         int newAlpha = (int) (ratio * 255);
         mActionBarBackgroundDrawable.setAlpha(newAlpha);
