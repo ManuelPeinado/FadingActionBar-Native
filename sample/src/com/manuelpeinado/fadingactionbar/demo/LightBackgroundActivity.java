@@ -7,14 +7,16 @@ import android.view.Menu;
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 public class LightBackgroundActivity extends Activity {
-    private FadingActionBarHelper mFadingActionBarHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mFadingActionBarHelper = new FadingActionBarHelper(this, R.drawable.ab_background);
-        mFadingActionBarHelper.setScrollViewContent(R.layout.header_light, R.layout.activity_scrollview);
+        FadingActionBarHelper helper = new FadingActionBarHelper()
+            .actionBarBackground(R.drawable.ab_background)
+            .headerLayout(R.layout.header_light)
+            .contentLayout(R.layout.activity_scrollview);
+        setContentView(helper.createView(this));
+        helper.initActionBar(this);
     }
 
     @Override

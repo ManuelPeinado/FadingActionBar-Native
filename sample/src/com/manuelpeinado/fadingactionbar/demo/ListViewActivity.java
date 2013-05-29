@@ -15,25 +15,31 @@ import android.widget.ListView;
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 public class ListViewActivity extends Activity {
-    protected static final String LOGTAG = "ListViewActivity";
-    private FadingActionBarHelper mFadingActionBarHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        mFadingActionBarHelper = new FadingActionBarHelper(this, R.drawable.ab_background);
-        mFadingActionBarHelper.setListViewContent(R.layout.header, R.layout.activity_listview);
-        
+
+        FadingActionBarHelper helper = new FadingActionBarHelper()
+            .actionBarBackground(R.drawable.ab_background)
+            .headerLayout(R.layout.header)
+            .contentLayout(R.layout.activity_listview);
+        setContentView(helper.createView(this));
+        helper.initActionBar(this);
+
         ListView listView = (ListView) findViewById(android.R.id.list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, loadItems());
+        ArrayList<String> items = loadItems(R.raw.nyc_sites);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
         listView.setAdapter(adapter);
     }
 
-    private ArrayList<String> loadItems() {
+    /**
+     * @return A list of Strings read from the specified resource
+     */
+    private ArrayList<String> loadItems(int rawResourceId) {
         try {
             ArrayList<String> countries = new ArrayList<String>();
-            InputStream inputStream = getResources().openRawResource(R.raw.nyc_sites);
+            InputStream inputStream = getResources().openRawResource(rawResourceId);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             while ((line = reader.readLine()) != null) {

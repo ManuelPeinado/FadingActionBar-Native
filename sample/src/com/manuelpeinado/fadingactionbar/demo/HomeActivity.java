@@ -30,7 +30,9 @@ public class HomeActivity extends ListActivity {
     private List<ActivityInfo> activitiesInfo = Arrays.asList(
             new ActivityInfo(ScrollViewActivity.class, R.string.activity_title_scrollview),
             new ActivityInfo(ListViewActivity.class, R.string.activity_title_listview),
-            new ActivityInfo(LightBackgroundActivity.class, R.string.activity_title_light_bg));
+            new ActivityInfo(LightBackgroundActivity.class, R.string.activity_title_light_bg),
+            new ActivityInfo(LightActionBarActivity.class, R.string.activity_title_light_ab),
+            new ActivityInfo(SampleFragmentActivity.class, R.string.activity_title_fragment));
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
