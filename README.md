@@ -62,6 +62,6 @@ License
 
 
 
- [1]: https://github.com/ManuelPeinado/RefreshActionItem
+ [1]: https://github.com/ManuelPeinado/FadingActionBar
  [2]: https://github.com/jgilfelt/android-viewbadger
  [3]: http://www.iconeden.com
