@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.manuelpeinado.fadingactionbar.demo"
-    android:versionCode="5"
-    android:versionName="2.0.1" >
+    android:versionCode="6"
+    android:versionName="2.1.0" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -38,10 +38,25 @@
             android:label="@string/new_york_city"
             android:theme="@style/AppTheme.TranslucentActionBar" />
         <activity
+            android:name="com.manuelpeinado.fadingactionbar.demo.LightActionBarActivity"
+            android:icon="@drawable/ic_location_map_dark"
+            android:label="@string/new_york_city"
+            android:theme="@style/AppTheme.Light.TranslucentActionBar" />
+        <activity
             android:name="com.manuelpeinado.fadingactionbar.demo.SampleFragmentActivity"
             android:icon="@drawable/ic_location_map_dark"
             android:label="@string/new_york_city"
             android:theme="@style/AppTheme.Light.TranslucentActionBar" />
+        <activity
+            android:name="com.manuelpeinado.fadingactionbar.demo.NoParallaxActivity"
+            android:icon="@drawable/ic_location_map"
+            android:label="@string/new_york_city"
+            android:theme="@style/AppTheme.TranslucentActionBar" />
+        <activity
+            android:name="com.manuelpeinado.fadingactionbar.demo.NavigationDrawerActivity"
+            android:icon="@drawable/ic_location_map"
+            android:label="@string/choose_city"
+            android:theme="@style/AppTheme.TranslucentActionBar" />
     </application>
 
 </manifest>
