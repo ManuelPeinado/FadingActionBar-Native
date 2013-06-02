@@ -14,7 +14,7 @@ Or if you use maven, add the following dependency to your pom:
 <dependency>
     <groupId>com.github.manuelpeinado.fadingactionbar-native</groupId>
     <artifactId>fadingactionbar-native</artifactId>
-    <version>1.0.2</version>
+    <version>2.0.1</version>
     <type>apklib</type>
 </dependency>
 ```
@@ -62,6 +62,6 @@ License
 
 
 
- [1]: https://github.com/ManuelPeinado/RefreshActionItem
+ [1]: https://github.com/ManuelPeinado/FadingActionBar
  [2]: https://github.com/jgilfelt/android-viewbadger
  [3]: http://www.iconeden.com
