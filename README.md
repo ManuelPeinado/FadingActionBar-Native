@@ -14,7 +14,7 @@ Or if you use maven, add the following dependency to your pom:
 <dependency>
     <groupId>com.github.manuelpeinado.fadingactionbar-native</groupId>
     <artifactId>fadingactionbar-native</artifactId>
-    <version>2.0.1</version>
+    <version>2.1.0</version>
     <type>apklib</type>
 </dependency>
 ```
