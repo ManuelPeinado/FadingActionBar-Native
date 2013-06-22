@@ -1,5 +1,8 @@
 Change Log
 =======================================
+Version 2.2.1 *(2013-06-22)*
+----------------------------
+* Fixes severe issue (https://github.com/ManuelPeinado/FadingActionBar/issues/6)
 
 Version 1.0.2 *(2013-05-26)*
 ----------------------------
