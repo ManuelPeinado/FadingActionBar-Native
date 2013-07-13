@@ -15,9 +15,6 @@
  */
 package com.manuelpeinado.fadingactionbar;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
@@ -269,8 +266,10 @@ public class FadingActionBarHelper {
             mListViewBackgroundView.offsetTopAndBottom(offset);
         }
 
-        mLastScrollPosition = scrollPosition;
-        mLastDampedScroll = dampedScroll;
+        if (mFirstGlobalLayoutPerformed) {
+            mLastScrollPosition = scrollPosition;
+            mLastDampedScroll = dampedScroll;
+        }
     }
 
     private void updateHeaderHeight(int headerHeight) {
