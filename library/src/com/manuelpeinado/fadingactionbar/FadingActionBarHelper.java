@@ -41,6 +41,8 @@ public class FadingActionBarHelper {
     private int mActionBarBackgroundResId;
     private int mHeaderLayoutResId;
     private View mHeaderView;
+    private int mHeaderOverlayLayoutResId;
+    private View mHeaderOverlayView;
     private int mContentLayoutResId;
     private View mContentView;
     private ActionBar mActionBar;
@@ -52,7 +54,7 @@ public class FadingActionBarHelper {
     private ViewGroup mContentContainer;
     private ViewGroup mScrollView;
     private boolean mFirstGlobalLayoutPerformed;
-    private View mMarginView;
+    private FrameLayout mMarginView;
     private View mListViewBackgroundView;
 
 
@@ -76,6 +78,22 @@ public class FadingActionBarHelper {
         return this;
     }
 
+    /** 
+     * A header overlay is placed on top of the header, and does not scroll with parallax effect. If you disable 
+     * parallax, then you shouldn't bother to use the header overlay, just put everything in the header.
+     */
+    public FadingActionBarHelper headerOverlayLayout(int layoutResId) {
+        mHeaderOverlayLayoutResId = layoutResId;
+        return this;
+    }
+
+    /**
+     * See {@link #headerOverlayLayout(int)}.
+     */
+    public FadingActionBarHelper headerOverlayView(View view) {
+        mHeaderOverlayView = view;
+        return this;
+    }
     public FadingActionBarHelper contentLayout(int layoutResId) {
         mContentLayoutResId = layoutResId;
         return this;
@@ -121,6 +139,16 @@ public class FadingActionBarHelper {
             root = createListView(listView);
         } else {
             root = createScrollView();
+        }
+
+        //
+        // Add header overlay (a special header that scrolls without parallax) 
+
+        if (mHeaderOverlayView == null && mHeaderOverlayLayoutResId != 0) {
+            mHeaderOverlayView = inflater.inflate(mHeaderOverlayLayoutResId, mMarginView, false);
+        }
+        if (mHeaderOverlayView != null) {
+            mMarginView.addView(mHeaderOverlayView);
         }
 
         // Use measured height here as an estimate of the header height, later on after the layout is complete 
@@ -185,7 +213,7 @@ public class FadingActionBarHelper {
         mHeaderContainer = (FrameLayout) mScrollView.findViewById(R.id.fab__header_container);
         initializeGradient(mHeaderContainer);
         mHeaderContainer.addView(mHeaderView, 0);
-        mMarginView = mContentContainer.findViewById(R.id.fab__content_top_margin);
+        mMarginView = (FrameLayout) mContentContainer.findViewById(R.id.fab__content_top_margin);
 
         return mScrollView;
     }
@@ -204,7 +232,7 @@ public class FadingActionBarHelper {
         initializeGradient(mHeaderContainer);
         mHeaderContainer.addView(mHeaderView, 0);
 
-        mMarginView = new View(listView.getContext());
+        mMarginView = (FrameLayout) new FrameLayout(listView.getContext());
         mMarginView.setLayoutParams(new AbsListView.LayoutParams(LayoutParams.MATCH_PARENT, 0));
         listView.addHeaderView(mMarginView, null, false);
 
